@@ -6,9 +6,9 @@ model TGM_Comax_Measurement_20160808 "Measured irradiance model on 2016-08-08; C
   parameter String fileNameIrradiance = Modelica.Utilities.Files.loadResource("modelica://PhotoVoltaics/Resources/WeatherData/TGM_Trina_20160808.txt") "Irradiance data file name";
   parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://PhotoVoltaics/Resources/WeatherData/TGM_Comax_20160808.txt") "Power data file name";
   parameter String csvFileName = "TGM_Comax_Measurement_20160808_power.csv";
-  Modelica.Units.SI.Irradiance irradiance=irradianceTable.y[1]
+  Modelica.SIunits.Irradiance irradiance=irradianceTable.y[1]
     "Measured irradiance";
-  Modelica.Units.SI.Power powerAC=powerTable.y[1] "Measured AC power";
+  Modelica.SIunits.Power powerAC=powerTable.y[1] "Measured AC power";
   PhotoVoltaics.Components.SimplePhotoVoltaics.SimplePlantSymmetric plant(
     useConstantIrradiance=false,
     moduleData=moduleData,
@@ -22,13 +22,13 @@ model TGM_Comax_Measurement_20160808 "Measured irradiance model on 2016-08-08; C
     Placement(visible = true, transformation(origin = {-50, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter PhotoVoltaics.Records.TSM_200_DC01A moduleData annotation (
     Placement(transformation(extent = {{60, 60}, {80, 80}})));
-  PhotoVoltaics.Components.Converters.QuasiStaticSinglePhaseConverter converter annotation (
+  PhotoVoltaics.Components.Converters.QuasiStationarySinglePhaseConverter converter annotation (
     Placement(transformation(extent = {{10, -20}, {30, 0}})));
   PhotoVoltaics.Components.Blocks.MPTrackerSample mpTracker(VmpRef = nsModule * moduleData.VmpRef, ImpRef = npModule * moduleData.ImpRef, samplePeriod = 10) annotation (
     Placement(transformation(extent = {{-10, -70}, {10, -50}})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundAC
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundAC
     annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
+  Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
     voltageSource(
     f=50,
     V=230,

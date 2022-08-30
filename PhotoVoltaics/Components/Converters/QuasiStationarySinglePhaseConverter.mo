@@ -1,14 +1,14 @@
 within PhotoVoltaics.Components.Converters;
-model QuasiStaticSinglePhaseConverter "Ideal quasi static single phase DC/AC converter"
+model QuasiStationarySinglePhaseConverter "Ideal quasi static single phase DC/AC converter"
   extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
-  extends .PhotoVoltaics.Interfaces.QuasiStatic.ACpins;
+  extends .PhotoVoltaics.Interfaces.QuasiStationary.ACpins;
   extends .PhotoVoltaics.Icons.Converter;
-  parameter Modelica.Units.SI.Voltage VRef=400/sqrt(3)
+  parameter Modelica.SIunits.Voltage VRef=400/sqrt(3)
     "Reference voltage";
-  parameter Modelica.Units.SI.Time Ti=1E-6
+  parameter Modelica.SIunits.Time Ti=1E-6
     "Internal integration time constant";
-  Modelica.Units.SI.Power powerDC=vDC*iDC "Power of DC side";
-  Modelica.Units.SI.Power powerAC=Modelica.ComplexMath.real(vAC*
+  Modelica.SIunits.Power powerDC=vDC*iDC "Power of DC side";
+  Modelica.SIunits.Power powerAC=Modelica.ComplexMath.real(vAC*
       Modelica.ComplexMath.conj(iAC)) "Complex apparent power of AC side";
   Modelica.Blocks.Interfaces.RealInput vDCRef(final unit = "V") "DC voltage" annotation (
     Placement(transformation(extent = {{-20, -20}, {20, 20}}, rotation = 90, origin={-60,-120}),  iconTransformation(extent = {{-20, -20}, {20, 20}}, rotation = 90, origin={-60,-120})));
@@ -22,12 +22,12 @@ model QuasiStaticSinglePhaseConverter "Ideal quasi static single phase DC/AC con
     Placement(transformation(extent = {{-10, 10}, {10, -10}}, rotation = 270, origin = {-30, 0})));
   Sources.Electrical.VariableUnrootedSinglePhaseCurrentSource variableCurrentSource annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {90, 30})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.PowerSensor
+  Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.PowerSensor
     powerSensor annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={90,60})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Sensors.VoltageSensor
+  Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor
     potentialSensor annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -110,4 +110,4 @@ The DC/AC converter is characterized by:
 <<li>The DC input voltage <code>vDCRef</code> is applied to the DC side without limitations</li>
 </ul>
 </html>"));
-end QuasiStaticSinglePhaseConverter;
+end QuasiStationarySinglePhaseConverter;

@@ -2,24 +2,24 @@ within PhotoVoltaics.ComponentTesting;
 model PolyphaseVoltageControlledConverter
   "Test of voltage current controlled converter"
   extends Modelica.Icons.Example;
-  PhotoVoltaics.Components.Converters.QuasiStaticPolyphaseConverter
+  PhotoVoltaics.Components.Converters.QuasiStationaryPolyphaseConverter
     converter
     annotation (Placement(transformation(extent={{-10,10},{10,30}})));
   Modelica.Electrical.Analog.Sources.ConstantCurrent constantCurrent(I = 1) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-40, 20})));
   Modelica.Electrical.Analog.Basic.Ground groundDC annotation (
     Placement(transformation(extent = {{-50, -20}, {-30, 0}})));
-  Modelica.Electrical.QuasiStatic.Polyphase.Sources.VoltageSource
+  Modelica.Electrical.QuasiStationary.Polyphase.Sources.VoltageSource
     voltageSource(f=50, V=fill(400/sqrt(3), 3)) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,0})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundAC
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundAC
     annotation (Placement(transformation(extent={{30,-70},{50,-50}})));
   Modelica.Blocks.Sources.Ramp ramp(duration = 0.6, startTime = 0.2, height = 200, offset = -100) annotation (
     Placement(transformation(extent = {{-60, -60}, {-40, -40}})));
-  Modelica.Electrical.QuasiStatic.Polyphase.Basic.Star star annotation (
+  Modelica.Electrical.QuasiStationary.Polyphase.Basic.Star star annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

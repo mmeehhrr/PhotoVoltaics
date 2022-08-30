@@ -61,9 +61,9 @@ model SimpleModulePolyphase
   Modelica.Blocks.Math.Gain gain(final k=3)
                                  annotation (Placement(transformation(extent={{0,-90},{-20,-70}})));
 
-  Modelica.Units.SI.Power powerDC=powerSensor.power "DC power";
-  Modelica.Units.SI.Power powerAC=powerSensorGrid.power "AC real power";
-  Modelica.Units.SI.ApparentPower aparrentPowerAC=powerFactorActual.u2
+  Modelica.SIunits.Power powerDC=powerSensor.power "DC power";
+  Modelica.SIunits.Power powerAC=powerSensorGrid.power "AC real power";
+  Modelica.SIunits.ApparentPower aparrentPowerAC=powerFactorActual.u2
     "AC apparent power";
   Real powerFactorAC = powerFactorActual.y "Actual power factor";
 

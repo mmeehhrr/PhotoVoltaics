@@ -12,12 +12,12 @@ model SimpleModuleMP "Simple module supplies quasi-static single-phase AC grid w
         rotation=-90)));
   Modelica.Blocks.Sources.Ramp ramp(duration = 100, startTime = 100, height = 800, offset = 200) annotation (
     Placement(transformation(extent = {{-80, -10}, {-60, 10}})));
-  PhotoVoltaics.Components.Converters.QuasiStaticSinglePhaseConverter converter annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+  PhotoVoltaics.Components.Converters.QuasiStationarySinglePhaseConverter converter annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   PhotoVoltaics.Components.Blocks.MPTrackerSample mpTracker(VmpRef = moduleData.VmpRef, ImpRef = moduleData.ImpRef) annotation (
     Placement(transformation(extent = {{0, -60}, {20, -40}})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundAC
+  Modelica.Electrical.QuasiStationarySinglePhase.Basic.Ground groundAC
     annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
+  Modelica.Electrical.QuasiStationarySinglePhase.Sources.VoltageSource
     voltageSource(
     f=50,
     V=230,

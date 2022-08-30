@@ -31,13 +31,13 @@ model TGM_Comax_WeatherData_OneYear "One year based on real weather data; Comax 
     Placement(transformation(extent = {{60, 60}, {80, 80}})));
   Buildings.BoundaryConditions.WeatherData.ReaderTMY3 weaDat(computeWetBulbTemperature = false, filNam = fileName) annotation (
     Placement(transformation(extent = {{-100, 70}, {-80, 90}})));
-  PhotoVoltaics.Components.Converters.QuasiStaticSinglePhaseConverter converter annotation (
+  PhotoVoltaics.Components.Converters.QuasiStationarySinglePhaseConverter converter annotation (
     Placement(transformation(extent = {{10, -20}, {30, 0}})));
   PhotoVoltaics.Components.Blocks.MPTrackerSample mpTracker(VmpRef = nsModule * moduleData.VmpRef, ImpRef = npModule * moduleData.ImpRef, samplePeriod = 60) annotation (
     Placement(transformation(extent = {{-10, -70}, {10, -50}})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Basic.Ground groundAC
+  Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground groundAC
     annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
-  Modelica.Electrical.QuasiStatic.SinglePhase.Sources.VoltageSource
+  Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource
     voltageSource(
     f=50,
     V=230,

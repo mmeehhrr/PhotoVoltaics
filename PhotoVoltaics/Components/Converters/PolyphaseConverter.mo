@@ -11,12 +11,12 @@ model PolyphaseConverter "Ideal polyphase DC/AC converter"
     "DC voltage"                                                             annotation (
     Placement(transformation(extent = {{-20, -20}, {20, 20}}, rotation = 90, origin={-60,-120}),  iconTransformation(extent = {{-20, -20}, {20, 20}}, rotation = 90, origin={-60,-120})));
 
-  parameter Modelica.Units.SI.Frequency f=50 "Frequency";
-  parameter Modelica.Units.SI.Voltage VRef=400
+  parameter Modelica.SIunits.Frequency f=50 "Frequency";
+  parameter Modelica.SIunits.Voltage VRef=400
     "Reference line to line voltage";
-  parameter Modelica.Units.SI.Time Ti=1E-6
+  parameter Modelica.SIunits.Time Ti=1E-6
     "Internal integration time constant";
-  Modelica.Units.SI.Power powerDC=vDC*iDC "Power of DC side";
+  Modelica.SIunits.Power powerDC=vDC*iDC "Power of DC side";
 
   Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin={-100,0})));

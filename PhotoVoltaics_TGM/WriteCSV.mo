@@ -4,8 +4,8 @@ block WriteCSV "Simple block to write CSV files with one time and data column"
   parameter String fileName = "time_energy.csv";
   parameter String inputQuantity = "energy(Ws)" "Header to be written to CSV file";
   parameter String delimiter = "\t" "Delimiter";
-  parameter Modelica.Units.SI.Time startTime=0 "Start time";
-  parameter Modelica.Units.SI.Time samplePeriod=86400
+  parameter Modelica.SIunits.Time startTime=0 "Start time";
+  parameter Modelica.SIunits.Time samplePeriod=86400
     "Sample time (86400s = 1d)";
   output Boolean sampleTrigger "True, if sample time instant";
   output Boolean firstTrigger(start = false, fixed = true) "Rising edge signals first sample instant";

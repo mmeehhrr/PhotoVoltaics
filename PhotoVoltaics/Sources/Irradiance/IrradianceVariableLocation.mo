@@ -8,17 +8,17 @@ model IrradianceVariableLocation "Simple solar irradiance without considering we
   parameter Integer startMonth(final min = 1, final max = 12) = 9 "Month";
   parameter Integer startYear = 2016 "Year";
   parameter Integer TimeZone = 1 "Time zone";
-  parameter Modelica.Units.SI.Angle longitude=0.2856929452589518
+  parameter Modelica.SIunits.Angle longitude=0.2856929452589518
     "Longitude";
-  parameter Modelica.Units.SI.Angle latitude=0.8418964085999744
+  parameter Modelica.SIunits.Angle latitude=0.8418964085999744
     "Latitude";
-  parameter Modelica.Units.SI.Irradiance irradianceRef=1000
+  parameter Modelica.SIunits.Irradiance irradianceRef=1000
     "Reference solar irradiance";
   Integer startDayOfYear(start = dayOfTheYear(startDay, startMonth, startYear)) "Start day of year in simulation";
   Integer dayOfYear(final start = dayOfTheYear(startDay, startMonth, startYear)) "Actual day of year";
   Integer daysOfYear(final start = dayOfTheYear(31, 12, startYear)) "Total number of days of year";
   Integer year(final start = startYear) "Actual year";
-  Modelica.Units.SI.Angle Jprime(final start=dayOfTheYear(
+  Modelica.SIunits.Angle Jprime(final start=dayOfTheYear(
               startDay,
               startMonth,
               startYear)/dayOfTheYear(
@@ -28,25 +28,25 @@ model IrradianceVariableLocation "Simple solar irradiance without considering we
     "Equivalent Angle of the day of the year w.r.t. total number of days";
   Real delta_J;
   Real timeequation_J;
-  Modelica.Units.NonSI.Time_day localTimeDays "Local time in days";
+  Modelica.SIunits.Conversions.NonSIunits.Time_day localTimeDays "Local time in days";
   Integer localDays "Locale day";
-  Modelica.Units.SI.Time localTime "Local time";
-  Modelica.Units.NonSI.Time_hour localTimeHours
+  Modelica.SIunits.Time localTime "Local time";
+  Modelica.SIunits.Conversions.NonSIunits.Time_hour localTimeHours
     "Local time in unit hours";
-  Modelica.Units.NonSI.Time_hour LocalMeanTimeHours
+  Modelica.SIunits.Conversions.NonSIunits.Time_hour LocalMeanTimeHours
     "Local mean time in unit hours";
-  Modelica.Units.NonSI.Time_hour trueMeanTimeHours
+  Modelica.SIunits.Conversions.NonSIunits.Time_hour trueMeanTimeHours
     "True mean time in unit hours";
-  Modelica.Units.SI.Angle hoursAngle "Hours angle";
-  Modelica.Units.SI.Angle sunHeight "Sun height";
-  Modelica.Units.SI.Angle sunAzimuth1 "Sun azimuth before 12 p.m.";
-  Modelica.Units.SI.Angle sunAzimuth2 "Sun azimuth after 12 p.m.";
-  Modelica.Units.SI.Angle sunAzimuth "Sun azimuth";
-  Modelica.Units.SI.Angle angleOfIncidence
+  Modelica.SIunits.Angle hoursAngle "Hours angle";
+  Modelica.SIunits.Angle sunHeight "Sun height";
+  Modelica.SIunits.Angle sunAzimuth1 "Sun azimuth before 12 p.m.";
+  Modelica.SIunits.Angle sunAzimuth2 "Sun azimuth after 12 p.m.";
+  Modelica.SIunits.Angle sunAzimuth "Sun azimuth";
+  Modelica.SIunits.Angle angleOfIncidence
     "Angle of incidence between a vector in sun direction and a normal vector";
-  Modelica.Units.SI.Irradiance directIrradianceHorizontal
+  Modelica.SIunits.Irradiance directIrradianceHorizontal
     "Direct irradiance on the horizontal in W/m^2";
-  Modelica.Units.SI.Irradiance directIrradianceInclined
+  Modelica.SIunits.Irradiance directIrradianceInclined
     "Direct irradiance on the inclined plane in w/m^2";
   Modelica.Blocks.Interfaces.RealOutput irradiance "Irradiance of inclined area" annotation(Placement(transformation(extent = {{100, -10}, {120, 10}})));
   Modelica.Blocks.Interfaces.RealInput gamma "Inclination angle of area" annotation (Placement(

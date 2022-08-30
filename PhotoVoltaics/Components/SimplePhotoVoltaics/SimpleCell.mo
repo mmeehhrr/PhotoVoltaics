@@ -17,9 +17,9 @@ model SimpleCell "Simple cell model"
       final nsModule=1,
       final npModule=1));
   final parameter Real m(start = 2, fixed = false) "Ideality factor of diode";
-  final parameter Modelica.Units.SI.Current IsdRef(start=1E-4, fixed=false)
+  final parameter Modelica.SIunits.Current IsdRef(start=1E-4, fixed=false)
     "Reference saturation current of cell";
-  final parameter Modelica.Units.SI.Current IphRef=moduleData.IscRef
+  final parameter Modelica.SIunits.Current IphRef=moduleData.IscRef
     "Reference photo current of cell";
 initial equation
   IphRef = IsdRef * (exp(moduleData.VocCellRef / m / moduleData.VtCellRef) - 1);

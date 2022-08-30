@@ -1,5 +1,5 @@
 DCConverter
-QuasiStaticSinglePhaseConverter
-QuasiStaticPolyphaseConverter
+QuasiStationarySinglePhaseConverter
+QuasiStationaryPolyphaseConverter
 PolyphaseConverter
 ConvertersWithSampleMPTracker

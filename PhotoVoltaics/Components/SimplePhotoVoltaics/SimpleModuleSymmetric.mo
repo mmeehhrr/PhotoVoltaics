@@ -18,16 +18,16 @@ model SimpleModuleSymmetric "Simple module consisting of symmetric series connec
       final alphaRef=moduleData.alphaIsc));
 
   final parameter Real m(start = 2, fixed = false) "Ideality factor of diode";
-  final parameter Modelica.Units.SI.Current IsdRef(start=1E-4, fixed=false)
+  final parameter Modelica.SIunits.Current IsdRef(start=1E-4, fixed=false)
     "Reference saturation current of cell";
-  final parameter Modelica.Units.SI.Current IphRef=moduleData.IscRef
+  final parameter Modelica.SIunits.Current IphRef=moduleData.IscRef
     "Reference photo current of cell";
-  Modelica.Units.SI.Voltage vCell=v/moduleData.ns "Cell voltage";
-  Modelica.Units.SI.Current iCell=i "Cell current";
-  Modelica.Units.SI.Current iCellGenerating=-iCell
+  Modelica.SIunits.Voltage vCell=v/moduleData.ns "Cell voltage";
+  Modelica.SIunits.Current iCell=i "Cell current";
+  Modelica.SIunits.Current iCellGenerating=-iCell
     "Negative cell current (generating)";
-  Modelica.Units.SI.Power powerCell=vCell*iCell "Cell power";
-  Modelica.Units.SI.Power powerCellGenerating=vCell*iCellGenerating
+  Modelica.SIunits.Power powerCell=vCell*iCell "Cell power";
+  Modelica.SIunits.Power powerCellGenerating=vCell*iCellGenerating
     "Negative power consumption (generating)";
 initial equation
   IphRef = IsdRef * (exp(moduleData.VocCellRef / m / moduleData.VtCellRef) - 1);
