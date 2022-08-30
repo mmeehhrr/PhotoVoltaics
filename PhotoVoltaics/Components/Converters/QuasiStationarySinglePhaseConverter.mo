@@ -60,7 +60,7 @@ equation
     Line(points = {{-39, 30}, {-30, 30}, {-30, 8}}, color = {0, 0, 127}));
   connect(powerSensor.currentP, powerSensor.voltageP) annotation (
     Line(points = {{90, 70}, {100, 70}, {100, 60}}, color = {85, 170, 255}));
-  connect(complexToReal.u, powerSensor.apparentPower) annotation (Line(
+  connect(complexToReal.u, powerSensor.y) annotation (Line(
         points={{42,70},{42,70},{74,70},{74,70},{79,70}}, color={85,170,255}));
   connect(feedback.y, integrator.u) annotation (
     Line(points = {{-30, -9}, {-30, -9}, {-30, -20}, {-50, -20}, {-50, -50}, {-32, -50}}, color = {0, 0, 127}));
@@ -72,7 +72,7 @@ equation
     Line(points={{60,0},{60,-60},{100,-60}},          color = {85, 170, 255}));
   connect(powerSensor.voltageN, ac_n) annotation (
     Line(points={{80,60},{80,60},{74,60},{74,-60},{100,-60}},              color = {85, 170, 255}));
-  connect(complexToPolar.u,potentialSensor.v)  annotation (
+  connect(complexToPolar.u,potentialSensor.y)  annotation (
     Line(points = {{40, -8}, {40, 10}, {49, 10}}, color = {85, 170, 255}));
   connect(polarToComplex.y, variableCurrentSource.I) annotation (
     Line(points = {{10, -9}, {10, 30}, {80, 30}}, color = {85, 170, 255}));

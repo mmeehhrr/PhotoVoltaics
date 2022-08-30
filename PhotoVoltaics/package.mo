@@ -78,6 +78,7 @@ Library authors are</p>
 <p>This libray was awarded with the
 <a href=\"https://modelica.org/events/modelica2019/subpages/library-award\">second price</a>
 at library award of the 13th Modelica Confernce, Regensburg 2019.</p>
-</html>"));
+</html>"),
+  uses(Modelica(version = "3.2.3")));
 
 end PhotoVoltaics;
